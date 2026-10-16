@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover our services and contact our team.">
+  <title>SmartFix Services | Your Local Business</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1220;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111c30;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo { color: #67e8f9; font-size: 24px; font-weight: bold; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+      font-size: 14px;
+    }
+
+    section { padding: 55px 7%; }
+    .hero { background: linear-gradient(135deg, #0b1220, #183653); }
+    .tag { color: #67e8f9; font-weight: bold; }
+    h1 { font-size: clamp(32px, 7vw, 52px); line-height: 1.15; }
+    p { color: #cbd5e1; }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      margin: 8px 8px 8px 0;
+      background: #67e8f9;
+      color: #0b1220;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .secondary { background: #26364d; color: white; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: #162237;
+      border: 1px solid #304159;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .contact { background: #111c30; }
+    footer {
+      text-align: center;
+      padding: 22px;
+      color: #cbd5e1;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid white;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">SmartFix.</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="tag">YOUR TRUSTED LOCAL PARTNER</div>
+      <h1>We Make Your Work Easier.</h1>
+      <p>
+        Professional services, friendly support and
+        solutions designed around your needs.
+      </p>
+      <a class="btn" href="#services">Our Services</a>
+      <a class="btn secondary" href="#contact">Contact Us</a>
+    </section>
+
+    <section id="services">
+      <div class="tag">WHAT WE OFFER</div>
+      <h2>Our Services</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Service One</h3>
+          <p>Describe your first business service here.</p>
+        </article>
+        <article class="card">
+          <h3>Service Two</h3>
+          <p>Explain how your second service helps customers.</p>
+        </article>
+        <article class="card">
+          <h3>Service Three</h3>
+          <p>Add details about another service you provide.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="tag">LET'S TALK</div>
+      <h2>Ready to Get Started?</h2>
+      <p>Contact us to discuss your requirements.</p>
+      <a class="btn" id="whatsapp" href="#contact">
+        Chat on WhatsApp
+      </a>
+      <p id="notice" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> SmartFix Services.
+    All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Replace with your business WhatsApp number.
+    // Use country code and digits only, without + or spaces.
+    const phone = "91YOURNUMBER";
+
+    document.getElementById("whatsapp").addEventListener(
+      "click", function(event) {
+        if (!/^\d{10,15}$/.test(phone)) {
+          event.preventDefault();
+          document.getElementById("notice").textContent =
+            "Please add your business WhatsApp number in the code first.";
+          return;
+        }
+
+        this.href = "https://wa.me/" + phone +
+          "?text=" + encodeURIComponent(
+            "Hello, I would like to know more about your services."
+          );
+      }
+    );
+  </script>
+</body>
+</html>
